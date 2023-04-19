@@ -18,7 +18,7 @@
                     class="image"
                 >
                     <img
-                        :src="item.image.image_path"
+                        :src="'/storage/' + item.image.image_path"
                         class=""
                     />
 
@@ -76,7 +76,7 @@ const slider = computed(() => {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('2.jpg');
+    background-image: url('/storage/2.jpg');
     background-size: cover;
 }
 

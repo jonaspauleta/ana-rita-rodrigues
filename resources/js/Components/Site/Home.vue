@@ -34,7 +34,7 @@ const subtitle = computed(() => {
     position: relative;
     overflow: hidden;
     text-align: center;
-    background-image: url('1.jpg');
+    background-image: url('/storage/1.jpg');
     background-size: cover;
 }
 

@@ -80,7 +80,7 @@ const text_3 = computed(() => {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('2.jpg');
+    background-image: url('/storage/2.jpg');
     background-size: cover;
 }
 

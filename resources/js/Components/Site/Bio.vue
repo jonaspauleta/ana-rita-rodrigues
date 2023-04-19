@@ -32,7 +32,7 @@ const bio = computed(() => {
 })
 
 const image = computed(() => {
-    return props.images.data.find((t) => t.key == "2ND_PAGE_IMAGE").image_path
+    return "/storage/" + props.images.data.find((t) => t.key == "2ND_PAGE_IMAGE").image_path
 })
 </script>
 
@@ -41,7 +41,7 @@ const image = computed(() => {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background-image: url('2.jpg');
+    background-image: url('/storage/2.jpg');
     background-size: cover;
 
     @media(max-width: 1200px) {
