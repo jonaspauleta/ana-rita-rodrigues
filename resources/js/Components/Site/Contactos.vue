@@ -1,45 +1,45 @@
 <template>
-    <div class="section" style="background-image: url('2.jpg'); background-size: cover">
-        <h1 style="font-family: Microsoft YaHei Light; font-size: 50px; text-align: center; position: absolute; top: 0; left: 50%; transform: translateX(-50%)">
+    <div class="section">
+        <h1 class="title">
             {{ title }}
         </h1>
 
-        <h2 class="titulo">
+        <h2 class="main-subtitle">
             {{ subtitle }}
         </h2>
 
-        <div style="display: flex; align-items: center">
-            <div style="width: 200px; margin-right: 75px">
-                <h3 class="titulo">
+        <div class="content">
+            <div class="container">
+                <h3 class="subtitle">
                     {{ subtitle_1 }}
                 </h3>
 
-                <p class="texto">
+                <p class="text">
                     {{ text_1 }}
                 </p>
             </div>
 
-            <div style="width: 225px; margin-left: 75px">
-                <h3 class="titulo">
+            <div class="container">
+                <h3 class="subtitle">
                     {{ subtitle_2 }}
                 </h3>
 
-                <p class="texto">
+                <p class="text">
                     {{ text_2 }}
                 </p>
             </div>
         </div>
 
-        <div style="position: absolute; bottom: 0; right: 200px">
-            <p class="texto" style="text-align: right">
+        <div class="bottom-container">
+            <p class="text bottom-text">
                 {{ name }}
             </p>
 
-            <p class="texto" style="text-align: right; margin-top: -10px">
+            <p class="text bottom-text">
                 {{ email }}
             </p>
 
-            <p class="texto" style="text-align: right; margin-top: -10px">
+            <p class="text bottom-text">
                 {{ phone }}
             </p>
         </div>
@@ -50,8 +50,8 @@
 import {computed} from "vue";
 
 const props =  defineProps({
-    titles: Array,
-    textfields: Array,
+    titles: Object,
+    textfields: Object,
 })
 
 const title = computed(() => {
@@ -90,3 +90,72 @@ const phone = computed(() => {
     return props.textfields.data.find((t) => t.key == "6TH_PAGE_PHONE").value
 })
 </script>
+
+<style scoped>
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('2.jpg');
+    background-size: cover;
+}
+
+.title {
+    font-family: Microsoft YaHei Light, serif;
+    font-size: 50px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.main-subtitle {
+    font-size: 20px;
+    margin-left: -40px;
+    text-align: center;
+    font-family: Microsoft YaHei Light, serif;
+}
+
+.subtitle {
+    text-align: center;
+    font-family: Microsoft YaHei Light, serif;
+}
+
+.text {
+    font-size: 20px;
+    font-family: Microsoft YaHei Light, serif;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media(max-width: 1300px) {
+        flex-direction: column;
+        align-content: center;
+        justify-items: center;
+    }
+}
+
+.container {
+    width: 250px;
+    margin-right: 75px;
+
+    @media(max-width: 1300px) {
+        margin-top: 25px;
+        margin-right: 0;
+    }
+}
+
+.bottom-container {
+    position: absolute; bottom: 0;
+    right: 200px;
+}
+
+.bottom-text {
+    text-align: right;
+    margin-top: -10px;
+}
+</style>

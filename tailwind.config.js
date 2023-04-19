@@ -13,7 +13,12 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                custom: ['Microsoft YaHei Light']
             },
+            backgroundImage: {
+                'one': "url('1.jpg')",
+                'two': "url('2.jpg')",
+            }
         },
     },
 

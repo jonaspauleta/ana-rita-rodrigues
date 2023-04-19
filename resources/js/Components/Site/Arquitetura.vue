@@ -1,36 +1,36 @@
 <template>
-    <div class="section" style="background-image: url('2.jpg'); background-size: cover">
-        <h1 style="font-family: Microsoft YaHei Light; font-size: 50px; text-align: center; position: absolute; top: 0; left: 50%; transform: translateX(-50%)">
+    <div class="section">
+        <h1 class="title">
             {{ title }}
         </h1>
 
-        <div style="display: flex; align-content: center">
-            <div style="width: 300px; border: 1px solid black; padding: 10px">
-                <h2 class="titulo">
+        <div class="content">
+            <div class="container">
+                <h2 class="subtitle">
                     {{ subtitle_1 }}
                 </h2>
 
-                <p class="texto">
+                <p class="text">
                     {{ text_1 }}
                 </p>
             </div>
 
-            <div style="width: 300px; margin-left: 150px; border: 1px solid black; padding: 10px">
-                <h2 class="titulo">
+            <div class="container-2">
+                <h2 class="subtitle">
                     {{ subtitle_2 }}
                 </h2>
 
-                <p class="texto">
+                <p class="text">
                     {{ text_2 }}
                 </p>
             </div>
 
-            <div style="width: 300px; margin-left: 150px; border: 1px solid black; padding: 10px">
-                <h2 class="titulo">
+            <div class="container-3">
+                <h2 class="subtitle">
                     {{ subtitle_3 }}
                 </h2>
 
-                <p class="texto">
+                <p class="text">
                     {{ text_3 }}
                 </p>
             </div>
@@ -42,8 +42,8 @@
 import {computed} from "vue";
 
 const props =  defineProps({
-    titles: Array,
-    textfields: Array,
+    titles: Object,
+    textfields: Object,
 })
 
 const title = computed(() => {
@@ -74,3 +74,73 @@ const text_3 = computed(() => {
     return props.textfields.data.find((t) => t.key == "3RD_PAGE_TEXT_3").value
 })
 </script>
+
+<style scoped>
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('2.jpg');
+    background-size: cover;
+}
+
+.title {
+    font-family: Microsoft YaHei Light, serif;
+    font-size: 50px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.content {
+    display: flex;
+    align-content: center;
+
+    @media(max-width: 1300px) {
+        flex-direction: column;
+        align-content: center;
+        justify-items: center;
+    }
+}
+
+.container {
+    width: 300px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.container-2 {
+    width: 300px;
+    border: 1px solid black;
+    padding: 10px;
+    margin-left: 150px;
+
+    @media(max-width: 1300px) {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+.container-3 {
+    width: 300px;
+    border: 1px solid black;
+    padding: 10px;
+    margin-left: 150px;
+
+    @media(max-width: 1300px) {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+.subtitle {
+    text-align: center;
+    font-family: Microsoft YaHei Light, serif;
+}
+.text {
+    font-size: 20px;
+    font-family: Microsoft YaHei Light, serif;
+}
+</style>

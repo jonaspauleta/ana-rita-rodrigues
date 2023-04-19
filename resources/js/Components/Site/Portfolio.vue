@@ -1,41 +1,39 @@
 <template>
-    <div class="section" style="background-image: url('2.jpg'); background-size: cover">
-        <div class="container">
-            <h1 style="font-family: Microsoft YaHei Light; font-size: 50px; text-align: center">
-                {{ title }}
-            </h1>
+    <div class="section">
+        <h1 class="title">
+            {{ title }}
+        </h1>
 
-            <swiper-container
-                slides-per-view="1"
-                pagination="true"
-                speed="1000"
-                loop="true"
+        <swiper-container
+            slides-per-view="1"
+            pagination="true"
+            speed="1000"
+            loop="true"
+        >
+            <swiper-slide
+                v-for="(item, index) in slider"
+                :key="index"
             >
-                <swiper-slide
-                    v-for="(item, index) in slider"
-                    :key="index"
+                <div
+                    class="image"
                 >
-                    <div
-                        class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                    >
-                        <img
-                            :src="item.image.image_path"
-                            class="block w-full h-full"
-                        />
+                    <img
+                        :src="item.image.image_path"
+                        class=""
+                    />
 
-                        <div class="inset-x-[15%] bottom-5 hidden py-5 text-center text-black mb-10 md:block">
-                            <h5 class="text-xl">
-                                {{ item.title.value }}
-                            </h5>
+                    <div class="">
+                        <h5 class="text-xl">
+                            {{ item.title.value }}
+                        </h5>
 
-                            <p>
-                                {{ item.text.value }}
-                            </p>
-                        </div>
+                        <p>
+                            {{ item.text.value }}
+                        </p>
                     </div>
-                </swiper-slide>
-            </swiper-container>
-        </div>
+                </div>
+            </swiper-slide>
+        </swiper-container>
     </div>
 </template>
 
@@ -46,9 +44,9 @@ register();
 import {computed} from "vue";
 
 const props =  defineProps({
-    titles: Array,
-    textfields: Array,
-    images: Array,
+    titles: Object,
+    textfields: Object,
+    images: Object,
 })
 
 const title = computed(() => {
@@ -72,3 +70,28 @@ const slider = computed(() => {
     return aux;
 })
 </script>
+
+<style scoped>
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('2.jpg');
+    background-size: cover;
+}
+
+.title {
+    font-family: Microsoft YaHei Light, serif;
+    font-size: 50px;
+    text-align: center;
+}
+
+.image {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 80%;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-    <full-page id="fullpage" ref="fullpage" :options="options">
+    <full-page :options="options">
         <Home :titles="props.titles"/>
 
         <Bio :titles="props.titles" :textfields="props.textfields" :images="props.images"/>
@@ -24,12 +24,10 @@ import Bio from "@/Components/Site/Bio.vue";
 import Home from "@/Components/Site/Home.vue";
 
 const props = defineProps({
-    titles: Array,
-    textfields: Array,
-    images: Array,
+    titles: Object,
+    textfields: Object,
+    images: Object,
 })
-
-console.log(props.titles, props.textfields, props.images);
 
 const options = ref({
     licenseKey: "YOUR_KEY_HERE",
@@ -40,33 +38,3 @@ const options = ref({
     anchors: ["page1", "page2", "page3", "page4", "page5", "page6"],
 })
 </script>
-
-<style>
-.section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.titulo {
-    text-align: center;
-    font-family: Microsoft YaHei Light;
-}
-.texto {
-    font-size: 20px;
-    font-family: Microsoft YaHei Light;
-}
-
-.carousel-control {
-    text-shadow: none; /* Remove a sombra */
-}
-
-.item.active {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100%; /* Se desejar que ocupe a altura do contêiner pai */
-}
-</style>
