@@ -10,7 +10,7 @@
             speed="1000"
             loop="true"
         >
-            <swiper-slide
+            <div
                 v-for="(item, index) in slider"
                 :key="index"
             >
@@ -32,7 +32,7 @@
                         </p>
                     </div>
                 </div>
-            </swiper-slide>
+            </div>
         </swiper-container>
     </div>
 </template>

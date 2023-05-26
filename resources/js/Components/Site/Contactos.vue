@@ -114,6 +114,7 @@ const phone = computed(() => {
     font-size: 20px;
     margin-left: -40px;
     text-align: center;
+    font-weight: bold;
     font-family: Microsoft YaHei Light, serif;
 }
 
